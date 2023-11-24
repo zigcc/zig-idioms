@@ -15,6 +15,7 @@ on:
 
 jobs:
   lint:
+    timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -28,3 +29,18 @@ jobs:
           # if you encounter error, rerun the command below and commit the changes
           make lint
           git diff --exit-code
+
+  test:
+    timeout-minutes: 10
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: goto-bus-stop/setup-zig@v2
+        with:
+          version: master
+      - name: Run Test
+        run: ./run-all.sh
