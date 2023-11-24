@@ -1,10 +1,12 @@
 # Zig idioms
 
-This repository collects tips for writing clean, idiomatic Zig code.
+[![](https://github.com/zigcc/zig-idioms/actions/workflows/ci.yml/badge.svg)](https://github.com/zigcc/zig-idioms/actions/workflows/ci.yml)
 
-Each tips is given an example named after it, which could be run with `zig build run`.
+This repository collects idioms/quirks for Zig.
 
-> This could be used as guide for developer with other programming languages background.
+Each idiom is given an example named after it, which could be run with `zig build run`.
+
+> This could be used as a quick guide for learner with other programming languages background.
 
 ## 01. Zig files are structs
 
@@ -114,3 +116,7 @@ Type of rect2 is struct{comptime w: comptime_int = 1, comptime h: comptime_int =
 Type of c is main.Color
 Type of c2 is @TypeOf(.enum_literal)
 ```
+
+# Other learning materials
+
+- [Problems of C, and how Zig addresses them](https://avestura.dev/blog/problems-of-c-and-how-zig-addresses-them)
