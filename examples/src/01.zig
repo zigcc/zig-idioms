@@ -1,5 +1,5 @@
 const std = @import("std");
-const Foo = @import("foo.zig");
+const Foo = @import("Foo.zig");
 
 pub fn main() !void {
     var foo = Foo{ .b = 100 };

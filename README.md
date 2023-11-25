@@ -2,11 +2,9 @@
 
 [![](https://github.com/zigcc/zig-idioms/actions/workflows/ci.yml/badge.svg)](https://github.com/zigcc/zig-idioms/actions/workflows/ci.yml)
 
-This repository collects idioms/quirks for Zig.
+> Zig, despite its simplicity, harbors unique features rarely found in other programming languages. This project aims to collect these techniques, serving as a valuable complement to the [Zig Language Reference](https://ziglang.org/documentation/master).
 
-Each idiom is given an example named after it, which could be run with `zig build run`.
-
-> This could be used as a quick guide for learner with other programming languages background.
+Each idiom is accompanied by an illustrative example named after its corresponding sequence number. These examples can be executed using the command `zig build run-{number}`, or `zig build run-all` to execute all.
 
 ## 01. Zig files are structs
 

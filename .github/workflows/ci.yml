@@ -30,17 +30,24 @@ jobs:
           make lint
           git diff --exit-code
 
-  test:
+  examples:
     timeout-minutes: 10
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest, macos-latest]
+        os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - uses: actions/checkout@v4
       - uses: goto-bus-stop/setup-zig@v2
         with:
           version: master
-      - name: Run Test
-        run: ./run-all.sh
+      - name: Run examples(Unix)
+        if: matrix.os != 'windows-latest'
+        working-directory: examples
+        run: zig build run-all --summary all
+
+      - name: Run examples(Windows)
+        if: matrix.os == 'windows-latest'
+        working-directory: examples
+        run: zig.exe build run-all --summary all
